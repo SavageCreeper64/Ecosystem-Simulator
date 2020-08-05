@@ -27,8 +27,14 @@ public class Animals : MonoBehaviour
     void Die()
     {
         AM.AudioPlayer("die", gameObject);
-        Destroy(gameObject);
+        StartCoroutine(DeathTimer());
         
+        
+    }
+    IEnumerator DeathTimer()
+    {
+        yield return new WaitForSeconds(1);
+        Destroy(gameObject);
     }
 
     public void Clone(int numberOfClones)
@@ -64,7 +70,7 @@ public class Animals : MonoBehaviour
         {
             hunger = maxHunger;
         }
-        hunger -= 1f;
+        hunger -= 0.1f;
         
 
     }

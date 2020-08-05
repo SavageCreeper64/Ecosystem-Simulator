@@ -75,7 +75,7 @@ public class Predator : Animals
         if (1 > Vector3.Distance(targetLocation, transform.position))
         {
             Destroy(closestP);
-
+            AM.AudioPlayer("chomp", gameObject);
         }
     }
     
